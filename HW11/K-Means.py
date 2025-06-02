@@ -49,4 +49,9 @@ print(f"Accuracy: {accuracy:.2f}")
 print(f"Training set size: {len(X_train)}")
 print(f"Test set size: {len(X_test)}")
 
-
+sn.heatmap(conf_matrix_percent, annot=True, fmt='.2f', cmap='Blues',
+           xticklabels=['Positive', 'Negative'], yticklabels=['Positive', 'Negative'])
+plt.xlabel('Predicted')
+plt.ylabel('True')
+plt.title('KMeans Clustering')
+plt.show()

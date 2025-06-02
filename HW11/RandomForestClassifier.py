@@ -63,3 +63,7 @@ print(f"Test set size: {len(X_test)}")
 sn.heatmap(percent_matrix, annot=True, fmt='.2f', cmap='Blues',
            xticklabels=['Positive', 'Negative'], yticklabels=['Positive', 'Negative']
             )
+plt.xlabel('Predicted')  # x 轴标签
+plt.ylabel('True')
+plt.title('RandomForestClassifier') 
+plt.show()
