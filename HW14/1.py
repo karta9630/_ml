@@ -16,19 +16,46 @@ observation, info = env.reset(seed=42)
 while 1:
    env.render()
    #action = env.action_space.sample()  # 把這裡改成你的公式，看看能撐多久
-   if observation[2]>0 and observation[3]>0: # + + 向右倒
+   while (observation[3])>0.00001: # + 向右倒
+        action=1
+        observation, reward, terminated, truncated, info = env.step(action)
+        step+=1
+        print(f'step = {step}')
+        if observation[0]>0.05 and observation[2]>0:
+            action=1
+            observation, reward, terminated, truncated, info = env.step(action)
+            step+=1
+            print(f'step = {step}')
+            if observation[0]>0.05 :
+                action=1
+                observation, reward, terminated, truncated, info = env.step(action)
+                step+=1
+                print(f'step = {step}')
+   while observation[2]>0.1:
+        action=1
+        observation, reward, terminated, truncated, info = env.step(action)
+        step+=1
+        print(f'step = {step}')
+   while observation[3]<0:
         action=0
         observation, reward, terminated, truncated, info = env.step(action)
         step+=1
-   elif observation[2]<0 and observation[3]<0:
-        action=1
-        observation, reward, terminated, truncated, info = env.step(action)
-        step+=1    
-    
+        print(f'step = {step}')
+        if observation[0]<=-0.001:
+            action=0
+            observation, reward, terminated, truncated, info = env.step(action)
+            step+=1
+            print(f'step = {step}')       
+        if observation[1]<-0.08:
+            action=0
+            observation, reward, terminated, truncated, info = env.step(action)
+            step+=1
+            print(f'step = {step}')     
    if terminated or truncated: # 這裡要加入程式，紀錄你每次撐多久
       observation, info = env.reset()
       print(f'step = {step}')
+      break
    if step==500:
        print("success")
-       break
+
 env.close()
