@@ -20,42 +20,35 @@ while 1:
         action=1
         observation, reward, terminated, truncated, info = env.step(action)
         step+=1
-        print(f'step = {step}')
         if observation[0]>0.05 and observation[2]>0:
             action=1
             observation, reward, terminated, truncated, info = env.step(action)
             step+=1
-            print(f'step = {step}')
             if observation[0]>0.05 :
                 action=1
                 observation, reward, terminated, truncated, info = env.step(action)
                 step+=1
-                print(f'step = {step}')
    while observation[2]>0.1:
         action=1
         observation, reward, terminated, truncated, info = env.step(action)
         step+=1
-        print(f'step = {step}')
    while observation[3]<0:
         action=0
         observation, reward, terminated, truncated, info = env.step(action)
         step+=1
-        print(f'step = {step}')
         if observation[0]<=-0.001:
             action=0
             observation, reward, terminated, truncated, info = env.step(action)
             step+=1
-            print(f'step = {step}')       
         if observation[1]<-0.08:
             action=0
             observation, reward, terminated, truncated, info = env.step(action)
             step+=1
-            print(f'step = {step}')     
    if terminated or truncated: # 這裡要加入程式，紀錄你每次撐多久
       observation, info = env.reset()
       print(f'step = {step}')
-      break
-   if step==500:
-       print("success")
+      step=0
+      
+
 
 env.close()
