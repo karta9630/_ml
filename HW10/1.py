@@ -87,6 +87,7 @@ def sendmsg2TG(msg: str) -> str:
         return send result: done or failed
     """
     assert type(msg) == str, "傳入訊息必須為字串"
+    #7580013563:AAHuK-7Hz-gOj_WpF8h8TvGNIYkxbUCP70g
     token=""
     chatID="-4783058800"
     url = f'https://api.telegram.org/bot{token}/sendMessage?chat_id={chatID}&text={msg}'
