@@ -14,4 +14,5 @@ for i in range(1000):
     x.data-=step*x.grad
     y.data-=step*y.grad
     z.data-=step*z.grad
+    print(x.grad)
 print(f"x={x} y={y} z={z} f(x,y,z)={f}")

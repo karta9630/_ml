@@ -40,8 +40,8 @@ def detect_and_display():
             # 獲取每個物件的邊界框 (x1, y1, x2, y2)
             x1, y1, x2, y2 = result.xyxy[0].int().tolist()
             cropped_img = img_rgb[y1:y2, x1:x2]
-            resized_img = cv2.resize(cropped_img, (1000, 250), interpolation=cv2.INTER_CUBIC)
             gray_img = cv2.cvtColor(resized_img,cv2.COLOR_RGB2GRAY)
+            resized_img = cv2.resize(cropped_img, (1000, 250), interpolation=cv2.INTER_CUBIC)
             kernel = np.ones((3,3),np.uint8)
             open_img = cv2.morphologyEx(gray_img,cv2.MORPH_OPEN,kernel)
             sim_inv = cv2.threshold(open_img,100,255,cv2.THRESH_BINARY_INV)[1]

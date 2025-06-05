@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 X_class1 = np.array([[2, 3], [3, 4], [4, 5]])
 X_class2 = np.array([[-1, -3], [-2, -2], [-3, -4]])
 
-# 合併資料並給定標籤 (+1, -1)
+# 合併資料並給定標籤 (+1, -1) 6 +1 -1
 X = np.vstack((X_class1, X_class2))
 y = np.array([1]*3 + [-1]*3)
 
